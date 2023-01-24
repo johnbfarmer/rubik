@@ -2,37 +2,39 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-view {
+
+}
+
+.cube-views {
+  display: flex;
+  text-align: center;
+}
+
+.controls {
+  
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .cube-1 {
   display: flex;
+}
+
+.cube-2 {
+  margin: 5%;
+}
+
+.three-d-cube { width: 60px;
+  height: 160px;
+  transform-style: preserve-3d;
+  transform: rotateX(240deg) rotateY(-10deg) rotateZ(-155deg);
 }
 
 .cube-1-face-1 {
@@ -47,8 +49,31 @@
 .cube-1-tile {
   width: 60px;
   height: 60px;
-  /* background-color: gray; */
   border: 1px solid black;
   margin: 0px;
   padding: 0px;
+}
+
+.side {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  border-radius: 10%;
+}
+
+.top {
+  transform: translate3D(73px,10px,-150px) rotateY(180deg);
+}
+
+.front {
+  transform: translate3D(82px,-5px,0) rotateX(90deg) rotateY(180deg);
+  transform-origin: bottom;
+}
+
+.left {
+  width: 60px;
+  transform: translate3D(60px,-10px,-65px) rotateY(90deg);
+  transform-origin: right;
 }
