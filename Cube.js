@@ -205,7 +205,7 @@ class Cube extends Component {
       [this.state.corners[0][2],this.state.corners[1][1],this.state.corners[4][2],this.state.corners[5][1]], // front
       [this.state.corners[7][0],this.state.corners[6][0],this.state.corners[4][0],this.state.corners[5][0]], // bottom
       [this.state.corners[2][2],this.state.corners[3][1],this.state.corners[6][2],this.state.corners[7][1]], // back
-      [this.state.corners[6][2],this.state.corners[5][1],this.state.corners[2][2],this.state.corners[1][1]], // right
+      [this.state.corners[6][1],this.state.corners[5][2],this.state.corners[2][1],this.state.corners[1][2]], // right
       [this.state.corners[7][2],this.state.corners[3][2],this.state.corners[4][1],this.state.corners[0][1]], // left
     ];
     let faces = tilesArranged.map((ta,i) => {
