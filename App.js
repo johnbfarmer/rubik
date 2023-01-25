@@ -1,15 +1,6 @@
 import React, { Component } from 'react';
-import Face from './Face.js';
 import Cube from './Cube.js';
 import './App.css';
-const colors = [
-  'red',
-  'white',
-  'yellow',
-  'green',
-  'blue',
-  'orange'
-];
 
 class App extends Component {
   render() {

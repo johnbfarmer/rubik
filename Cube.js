@@ -44,6 +44,36 @@ class Cube extends Component {
 
   performMove = (move) => {
     switch (move) {
+      case 'X':
+        this.rotateCubeLeft();
+        this.rotateTop();
+        this.rotateCubeRight();
+        this.rotateCubeRight();
+        this.reverseRotateTop();
+        this.rotateCubeLeft();
+        break;
+      case 'Xi':
+        this.rotateCubeLeft();
+        this.reverseRotateTop();
+        this.rotateCubeRight();
+        this.rotateCubeRight();
+        this.rotateTop();
+        this.rotateCubeLeft();
+        break;
+      case 'Y':
+        this.rotateTop();
+        this.rotateBottom();
+        break;
+      case 'Yi':
+        this.reverseRotateTop();
+        this.reverseRotateBottom();
+        break;
+      case 'Z':
+        this.rotateCubeLeft();
+        break;
+      case 'Zi':
+        this.rotateCubeRight();
+        break;
       case 'R':
         this.rotateCubeLeft();
         this.rotateTop();
@@ -63,6 +93,30 @@ class Cube extends Component {
         this.rotateCubeRight();
         this.rotateTop();
         this.rotateCubeLeft();
+        break;
+      case 'U':
+        this.rotateTop();
+        break;
+      case 'Ui':
+        this.reverseRotateTop();
+        break;
+      case 'D':
+        this.rotateBottom();
+        break;
+      case 'Di':
+        this.reverseRotateBottom();
+        break;
+      case 'F':
+        this.rotateFront();
+        break;
+      case 'Fi':
+        this.reverseRotateFront();
+        break;
+      case 'B':
+        this.rotateBack();
+        break;
+      case 'Bi':
+        this.reverseRotateBack();
         break;
       default:
         alert ('move '+move+' is not defined');
@@ -199,6 +253,14 @@ class Cube extends Component {
     this.setState({ corners: c });
   }
 
+  scramble = () => {
+    let moves = ['X','Xi','Y','Yi','Z','Zi','R','Ri','L','Li','U','Ui','D','Di','F','Fi','B','Bi'];
+    for (let i=0; i<20; i++) {
+      let r = Math.floor(moves.length*Math.random());
+      this.performMove(moves[r]);
+    }
+  }
+
   render() {
     let tilesArranged = [
       [this.state.corners[3][0],this.state.corners[2][0],this.state.corners[0][0],this.state.corners[1][0]], // top
@@ -222,11 +284,23 @@ class Cube extends Component {
             </div>
           </div>
           <div className='controls'>
-            <div className='pointer' onClick={this.rotateCubeLeft}>
-              rotate cube left
+            <div className='pointer' onClick={() => this.performMove('X')}>
+              X
+            </div>
+            <div className='pointer' onClick={() => this.performMove('Xi')}>
+              Xi
+            </div>
+            <div className='pointer' onClick={() => this.performMove('Y')}>
+              Y
+            </div>
+            <div className='pointer' onClick={() => this.performMove('Yi')}>
+              Yi
             </div>
             <div className='pointer' onClick={this.rotateCubeRight}>
-              rotate cube right
+              Z
+            </div>
+            <div className='pointer' onClick={this.rotateCubeLeft}>
+              Zi
             </div>
             <div className='pointer' onClick={() => this.performMove('R')}>
               R
@@ -263,6 +337,9 @@ class Cube extends Component {
             </div>
             <div className='pointer' onClick={this.reverseRotateBack}>
               Bi
+            </div>
+            <div className='pointer' onClick={this.scramble}>
+              SCRAMBLE
             </div>
           </div>
         </div>

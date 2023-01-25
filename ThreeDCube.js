@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SlantedFace from './SlantedFace.js';
 import Face from './Face.js';
 
 class ThreeDCube extends Component {
